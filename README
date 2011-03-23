@@ -1,0 +1,29 @@
+====================================================
+============== Project Start Readme ================
+====================================================
+
+Project Start is created by
+Cory Borrow - cborrow03 [at] gmail [dot] com
+
+Project Start is a application for Windows and possible linux (Using Mono)
+written in C# using the .NET/Mono Framework.
+
+This project was created as a Windows app based on the idea behind
+the Structurer app for Mac OS X.
+
+Project Start has the following requirements
+
+Windows XP or better with .NET Framework 2.0+
+UNIX with the Mono Framework 2.0+
+
+Project Start does not depend on an external dependices outside of
+whatever is required for the .NET/Mono Framework.
+
+===================================================
+================== Change Log =====================
+===================================================
+v0.0.1 - Released first few files.
+	- Content and Structure Template classes,
+	- Content and Structure Template Manager classes,
+	- Directory Building class.
+
