@@ -1,0 +1,1 @@
+﻿This folder will contain ContentTemplates created with Project Start
