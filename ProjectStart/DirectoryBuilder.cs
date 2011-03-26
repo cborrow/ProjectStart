@@ -13,7 +13,11 @@ namespace ProjectStart
         public string BasePath
         {
             get { return basePath; }
-            set { basePath = value; }
+            set
+            {
+                basePath = value;
+                currentDir = basePath;
+            }
         }
 
         public DirectoryBuilder()
@@ -80,6 +84,9 @@ namespace ProjectStart
 
         public void AddFile(string file, ContentTemplate template)
         {
+            if (string.IsNullOrEmpty(file))
+                throw new ArgumentNullException("file", "Argument cannot be null");
+
             string path = Path.Combine(currentDir, file);
 
             if (template != null)
