@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
+using ProjectStart.Controls;
+
 namespace ProjectStart
 {
     public partial class ContentManagerForm : Form
@@ -29,6 +31,10 @@ namespace ProjectStart
         {
             InitializeComponent();
 
+            listBoxEx1.Renderer = new ContentTemplateRenderer();
+            listBoxEx1.DrawMode = DrawMode.OwnerDrawFixed;
+            listBoxEx1.ItemHeight = 30;
+
             autoSaveTimer = new Timer();
             autoSaveTimer.Interval = 1000;
             autoSaveTimer.Tick += new EventHandler(autoSaveTimer_Tick);
@@ -38,10 +44,10 @@ namespace ProjectStart
         {
             if (selectedTemplate == null)
                 return;
-            textBox1.Text = selectedTemplate.Name;
-            textBox2.Text = selectedTemplate.Shortcut;
-            textBox3.Text = selectedTemplate.Content;
-            comboBox1.Text = selectedTemplate.Mode.ToString();
+            SetText(textBox1, selectedTemplate.Name);
+            SetText(textBox2, selectedTemplate.Shortcut);
+            SetText(textBox3, selectedTemplate.Content);
+            SetText(comboBox1, selectedTemplate.Mode.ToString());
         }
 
         protected void UpdateTemplateData()
@@ -85,7 +91,7 @@ namespace ProjectStart
             sr.Close();
 
             ContentTemplateManager.Manager.Add(template);
-            listBox1.Items.Add(template.Name);
+            listBoxEx1.Items.Add(template);
             return template;
         }
 
@@ -100,9 +106,11 @@ namespace ProjectStart
         {
             autoSaveTimer.Stop();
 
-            int index = listBox1.Items.IndexOf(this.SelectedTemplate.Name);
-            listBox1.Items[index] = textBox1.Text;
-            UpdateTemplateData();
+            if (listBoxEx1.SelectedIndex >= 0)
+            {
+                ((ContentTemplate)listBoxEx1.SelectedItem).Name = textBox1.Text;
+                UpdateTemplateData();
+            }
 
             autoSaveTimer.Tag = 0;
             autoSaveTimer.Start();
@@ -116,6 +124,10 @@ namespace ProjectStart
                 return;
             }
 
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) ||
+                string.IsNullOrEmpty(textBox3.Text))
+                return;
+
             autoSaveTimer.Stop();
             
             string path = Path.Combine(ContentTemplateManager.TemplatesPath, this.SelectedTemplate.Name + ".ctpl");
@@ -128,8 +140,9 @@ namespace ProjectStart
             template.Name = "Untitled";
 
             ContentTemplateManager.Manager.Add(template);
-            listBox1.Items.Add(template.Name);
-            selectedTemplate = template;
+            listBoxEx1.Items.Add(template);
+            listBoxEx1.SelectedIndex = listBoxEx1.Items.IndexOf(template);
+            this.SelectedTemplate = template;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -139,10 +152,8 @@ namespace ProjectStart
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = listBox1.SelectedIndex;
-
-            if(index >= 0 && index < listBox1.Items.Count)
-                this.SelectedTemplate = ContentTemplateManager.Manager.Find((string)listBox1.Items[index]);
+            int index = listBoxEx1.SelectedIndex;
+            this.SelectedTemplate = (ContentTemplate)listBoxEx1.SelectedItem;
         }
     }
 }
