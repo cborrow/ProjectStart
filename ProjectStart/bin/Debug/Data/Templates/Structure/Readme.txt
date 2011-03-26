@@ -1,0 +1,1 @@
+﻿This folder will contain StructureTemplates created by Project Start

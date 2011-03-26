@@ -1,0 +1,10 @@
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\bin\Debug\Data\Templates\Content\Readme.txt
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\bin\Debug\Data\Templates\Structure\Readme.txt
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\bin\Debug\ProjectStart.exe
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\bin\Debug\ProjectStart.pdb
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\obj\x86\Debug\ProjectStart.ContentManagerForm.resources
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\obj\x86\Debug\ProjectStart.MainForm.resources
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\obj\x86\Debug\ProjectStart.csproj.GenerateResource.Cache
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\obj\x86\Debug\ProjectStart.exe
+C:\Users\Cory\Documents\Visual Studio 2010\Projects\ProjectStart\ProjectStart\obj\x86\Debug\ProjectStart.pdb
